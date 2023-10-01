@@ -11,12 +11,16 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/streamlit/streamlit-example.git .
+RUN git clone https://github.com/juanjaragavi/cv-virtual.git .
+
+RUN cd abby
+
+COPY . .
 
 RUN pip3 install -r requirements.txt
 
-EXPOSE 8501
+EXPOSE 8504
 
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+HEALTHCHECK CMD curl --fail http://localhost:8504/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8504", "--server.address=0.0.0.0"]

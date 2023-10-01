@@ -1,8 +1,6 @@
 import streamlit as st
-import transformers
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import os
-from transformers import pipeline
 
 pipe = pipeline("text-generation", model="meta-llama/Llama-2-7b-chat-hf")
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf")

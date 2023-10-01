@@ -7,6 +7,8 @@ st.set_page_config(page_title="🙋🏻‍♀️ 💬 Hello! I'm Abby ❤️")
 
 # Add a header
 st.header('🙋🏻‍♀️ 💬 Hello! I\'m Abby ❤️')
+url = "https://abbot-chatbot.streamlit.app"
+st.sidebar.markdown(f'<a href="{url}" target="_blank"><button style="color: white; background-color: transparent; border: 0.5px solid rgba(255, 255, 255, 0.5); border-radius: 10px; cursor: pointer; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px;">🙋🏻‍♂️ Chat with Abbot 🏍️</button></a>', unsafe_allow_html=True)
 
 # Replicate Credentials
 with st.sidebar:
@@ -70,7 +72,6 @@ if prompt := st.chat_input(disabled=not replicate_api):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)
-    st.empty()
 
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":

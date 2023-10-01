@@ -6,7 +6,7 @@ import os
 st.set_page_config(page_title="🙋🏻‍♀️ 💬 Hello! I'm Abby ❤️")
 
 # Add a header
-st.header(' 🙋🏻‍♀️ 💬 Hello! I\'m Abby ❤️')
+st.header('🙋🏻‍♀️ 💬 Hello! I\'m Abby ❤️')
 
 # Replicate Credentials
 with st.sidebar:
@@ -70,6 +70,7 @@ if prompt := st.chat_input(disabled=not replicate_api):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)
+    st.empty()
 
 # Generate a new response if last message is not from assistant
 if st.session_state.messages[-1]["role"] != "assistant":
